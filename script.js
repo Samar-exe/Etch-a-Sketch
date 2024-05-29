@@ -1,6 +1,7 @@
 const container = document.querySelector("#container");
 
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < 256; i++) {
   const div = document.createElement("div");
+//   div.style.margin = "20px"
   container.appendChild(div);
 }
