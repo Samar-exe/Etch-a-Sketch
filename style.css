@@ -6,12 +6,10 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    max-width: 960px;
    
 }
 #container div{
     flex-basis: 6.167%; 
     height: 40px
 }
-/* #container div:hover{
-    background-color: pink;
-} */
