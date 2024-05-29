@@ -1,0 +1,17 @@
+body{
+    box-sizing: border-box;
+    background-color: white;
+}
+#container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+}
+#container div{
+    flex-basis: 6.167%; 
+    height: 40px
+}
+/* #container div:hover{
+    background-color: pink;
+} */
