@@ -79,3 +79,11 @@ function generateNewGrids(gridSize) {
   grids = document.querySelectorAll(".grid")
 };
 
+function clearGrid() {
+  for (let index = 0; index < defaultGridSize; index++) {
+    let rows = document.querySelectorAll(".grid-rows");
+    rows.forEach(row => {
+      container.removeChild(row);
+    });
+  };
+};
