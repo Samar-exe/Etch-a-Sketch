@@ -58,3 +58,24 @@ function askForNewGrid() {
   };
 };
 
+function generateNewGrids(gridSize) {
+  clearGrid();
+  for (let index = 0; index < gridSize; index++) {
+    let row = document.createElement("div");
+    row.setAttribute("class", "grid-rows");
+    row.style.flex = "1 1 auto";
+    row.style.display = "flex";
+    row.style.flexDirection = "row";
+    container.appendChild(row);
+
+    for (let i = 0; i < gridSize; i++) {
+      let grid = document.createElement("div");
+      grid.setAttribute("class", "grid");
+      grid.style.border = "1px solid lightgrey";
+      grid.style.flex = "1 1 auto";
+      row.appendChild(grid);
+    };
+  };
+  grids = document.querySelectorAll(".grid")
+};
+
