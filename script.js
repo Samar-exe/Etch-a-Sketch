@@ -46,3 +46,15 @@ function defaultLayout(gridSize) {
     };
   };
 };
+
+function askForNewGrid() {
+  let newGridSize = parseInt(prompt("enter grid size"));
+  if (newGridSize <= 100) {
+    generateNewGrids(newGridSize);
+    draw();
+  }
+  else {
+    alert("Only under a 100 grids can be made")
+  };
+};
+
