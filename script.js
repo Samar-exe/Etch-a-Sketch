@@ -16,6 +16,20 @@ draw();
 
 // Events
 sizeChanger.addEventListener("click", askForNewGrid);
+rainbowModeButton.addEventListener("click", () => {
+  if (rainbowModeEnbaled === false) {
+    rainbowModeEnbaled = true;
+    penColor = getRainbowColors();
+    rainbowModeButton.style.backgroundColor = "var(--secondary)"
+    rainbowModeButton.style.color = "var(--on-secondary)"
+  }
+  else {
+    rainbowModeEnbaled = false;
+    penColor = "black";
+    rainbowModeButton.style.backgroundColor = "var(--primary)"
+    rainbowModeButton.style.color = "var(--on-primary)"
+  };
+});
 
 function draw() {
 // Found this very cool solution here: https://stackoverflow.com/questions/30817534/how-to-implement-mousemove-while-mousedown-pressed-js
