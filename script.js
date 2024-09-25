@@ -31,17 +31,36 @@ rainbowModeButton.addEventListener("click", () => {
   };
 });
 
+
 function draw() {
-// Found this very cool solution here: https://stackoverflow.com/questions/30817534/how-to-implement-mousemove-while-mousedown-pressed-js
+  // Found this very cool solution here: https://stackoverflow.com/questions/30817534/how-to-implement-mousemove-while-mousedown-pressed-js
   grids = document.querySelectorAll(".grid");
   grids.forEach(grid => {
-    grid.addEventListener("mousemove", (e) => {
-      if (e.buttons == 1) {
-        e.target.style.backgroundColor = penColor;
-      };
-    });
+    for (let i = 0; i < 10; i++) {
+      grid.addEventListener("mousemove", (e) => {
+        if (e.buttons == 1) {
+          e.target.style.backgroundColor = penColor;
+          //if(rainbowModeEnbaled === true){
+          //  penColor = getRainbowColors();
+          //}
+        };
+      });
+    };
   });
-}
+  //This will change the penColor to any random color when mouse enters grid.
+  grids.forEach(grid => {
+    for (let i = 0; i < 10; i++) {
+      grid.addEventListener("mouseenter", (e) => {
+        if (e.buttons == 1) {
+          e.target.style.backgroundColor = penColor;
+          if (rainbowModeEnbaled === true) {
+            penColor = getRainbowColors();
+          }
+        };
+      });
+    };
+  });
+};
 
 
 //Functions
