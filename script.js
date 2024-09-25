@@ -1,11 +1,14 @@
 // Set default values;
 let defaultGridSize = 16;
 let penColor = "black";
-
+let gridBorder = "1px solid lightgrey";
+let showGridBorder = true;
 // Declaring some dom elements.
-let sizeChanger = document.querySelector(".size-button")
 let container = document.querySelector(".grid-container");
-
+let sizeChanger = document.querySelector(".size-button");
+let rainbowModeButton = document.querySelector(".rainbow-mode");
+let rainbowModeEnbaled = false;
+let showGridsButton = document.querySelector(".show-grid-button");
 
 defaultLayout(defaultGridSize);
 draw();
