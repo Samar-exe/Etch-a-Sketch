@@ -93,7 +93,7 @@ function defaultLayout(gridSize) {
     for (let i = 0; i < gridSize; i++) {
       let grid = document.createElement("div");
       grid.setAttribute("class", "grid");
-      grid.style.border = "1px solid lightgrey";
+      grid.style.border = gridBorder;
       grid.style.flex = "1 1 auto";
       row.appendChild(grid);
     };
@@ -124,7 +124,7 @@ function generateNewGrids(gridSize) {
     for (let i = 0; i < gridSize; i++) {
       let grid = document.createElement("div");
       grid.setAttribute("class", "grid");
-      grid.style.border = "1px solid lightgrey";
+      grid.style.border = gridBorder;
       grid.style.flex = "1 1 auto";
       row.appendChild(grid);
     };
@@ -140,3 +140,15 @@ function clearGrid() {
     });
   };
 };
+
+function getRainbowColors() {
+  colors = ['red', 'blue', 'green', 'teal', 'yellow', 'pink', 'violet', 'orange'];
+  currentColor = shuffleColors(colors);
+  return currentColor;
+}
+
+function shuffleColors(colors) {
+  let len = colors.length;
+  let currCol = colors[Math.floor(Math.random() * len)];
+  return currCol;
+}
