@@ -1,4 +1,18 @@
-*{
+:root{
+  --primary: #00796B;
+  --primary-variany:#00BFA5;
+  --secondary:#FFC107;
+  --secondary-variany:#FFE57F;
+  --background:#E0E0E0;
+  --surface:#FAFAFA;
+  --on-primary:#FAFAFA;
+  --on-secondary:#212121;
+  --on-background:#212121;
+  --on-surface:  #212121;
+  --outline:#BDBDBD;
+}
+
+* {
   margin: 0;
   padding: 0;
 }
