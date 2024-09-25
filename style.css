@@ -16,7 +16,7 @@
   margin: 0;
   padding: 0;
 }
-#main{
+#main {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -24,13 +24,32 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  background-color: var(--background);
 }
-
-.grid-container{
-  border: 1px solid black;
+.settings{
+ display:flex;
+ gap: 16px;
+}
+.grid-container {
+  border: 1px solid var(--outline);
   width: 500px;
   height: 500px;
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  background-color: var(--surface);
+  box-shadow: 0px 6px 5px 1px black;
+}
+
+.btn {
+  padding: 4px 8px;
+  font-size: 1rem;
+  border: 0;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.04, 1.04);
 }
