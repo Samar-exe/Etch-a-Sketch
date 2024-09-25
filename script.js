@@ -3,12 +3,16 @@ let defaultGridSize = 16;
 let penColor = "black";
 let gridBorder = "1px solid lightgrey";
 let showGridBorder = true;
+let rainbowModeEnbaled = false;
+let gradientModeEnbaled = false;
+let count = 0;
 // Declaring some dom elements.
 let container = document.querySelector(".grid-container");
 let sizeChanger = document.querySelector(".size-button");
 let rainbowModeButton = document.querySelector(".rainbow-mode");
-let rainbowModeEnbaled = false;
 let showGridsButton = document.querySelector(".show-grid-button");
+let clearButton = document.querySelector(".clear-button");
+let gradientModeButton = document.querySelector(".gradient-mode");
 
 defaultLayout(defaultGridSize);
 draw();
