@@ -62,6 +62,23 @@ function draw() {
   });
 };
 
+showGridsButton.addEventListener("click", () => {
+  if (showGridBorder === true) {
+    showGridBorder = false;
+    gridBorder = "0";
+    document.querySelectorAll(".grid").forEach(grid=>{
+      grid.style.border = gridBorder;
+    })
+  }
+  else {
+    showGridBorder = true;
+    gridBorder = "1px solid lightgrey";
+    document.querySelectorAll(".grid").forEach(grid=>{
+      grid.style.border = gridBorder;
+    })
+  };
+})
+
 
 //Functions
 function defaultLayout(gridSize) {
