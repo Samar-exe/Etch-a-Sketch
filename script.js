@@ -35,6 +35,43 @@ rainbowModeButton.addEventListener("click", () => {
   };
 });
 
+gradientModeButton.addEventListener("click", () => {
+  if (gradientModeEnbaled === false) {
+    gradientModeEnbaled = true;
+    penColor = `rgba(0 , 0, 0 , ${getGradients()})`;
+    gradientModeButton.style.backgroundColor = "var(--primary-variant)";
+    gradientModeButton.style.color = "var(--on-primary)";
+  }
+  else {
+    gradientModeEnbaled = false;
+    gradientModeButton.style.backgroundColor = "var(--primary)";
+    gradientModeButton.style.color = "var(--on-primary)";
+    penColor = "black";
+  };
+});
+
+showGridsButton.addEventListener("click", () => {
+  if (showGridBorder === true) {
+    showGridBorder = false;
+    gridBorder = "0";
+    document.querySelectorAll(".grid").forEach(grid => {
+      grid.style.border = gridBorder;
+    })
+  }
+  else {
+    showGridBorder = true;
+    gridBorder = "1px solid lightgrey";
+    document.querySelectorAll(".grid").forEach(grid => {
+      grid.style.border = gridBorder;
+    })
+  };
+})
+
+clearButton.addEventListener("click", () => {
+  document.querySelectorAll(".grid").forEach(grid => {
+    grid.style.backgroundColor = '';
+  })
+})
 
 function draw() {
   // Found this very cool solution here: https://stackoverflow.com/questions/30817534/how-to-implement-mousemove-while-mousedown-pressed-js
@@ -44,9 +81,6 @@ function draw() {
       grid.addEventListener("mousemove", (e) => {
         if (e.buttons == 1) {
           e.target.style.backgroundColor = penColor;
-          //if(rainbowModeEnbaled === true){
-          //  penColor = getRainbowColors();
-          //}
         };
       });
     };
@@ -64,24 +98,26 @@ function draw() {
       });
     };
   });
-};
 
-showGridsButton.addEventListener("click", () => {
-  if (showGridBorder === true) {
-    showGridBorder = false;
-    gridBorder = "0";
-    document.querySelectorAll(".grid").forEach(grid=>{
-      grid.style.border = gridBorder;
-    })
-  }
-  else {
-    showGridBorder = true;
-    gridBorder = "1px solid lightgrey";
-    document.querySelectorAll(".grid").forEach(grid=>{
-      grid.style.border = gridBorder;
-    })
-  };
-})
+  grids.forEach(grid => {
+    for (let i = 0; i < 10; i++) {
+      grid.addEventListener("mouseenter", (e) => {
+        if (e.buttons == 1) {
+          e.target.style.backgroundColor = penColor;
+          if (gradientModeEnbaled === true) {
+            penColor = `rgba(0,0,0,${getGradients()})`;
+            if (count < 10) {
+              count++;
+            }
+            else{
+              count = 0;
+            }
+          }
+        };
+      });
+    };
+  });
+};
 
 
 //Functions
@@ -155,4 +191,17 @@ function shuffleColors(colors) {
   let len = colors.length;
   let currCol = colors[Math.floor(Math.random() * len)];
   return currCol;
+}
+function getGradients() {
+  OpacityValues = [];
+  for (let i = 1; i <= 10; i++) {
+    OpacityValues.push(i / 10);
+  };
+  currentOpacity = setOpacity(OpacityValues);
+  return currentOpacity;
+}
+function setOpacity(OpacityValues) {
+  let len = OpacityValues.length;
+  let currOpacity = OpacityValues[count];
+  return currOpacity;
 }
